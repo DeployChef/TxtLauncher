@@ -28,7 +28,7 @@ namespace TxtLauncher
             DispatcherUnhandledException += ProcessUnhandledException;
 
             var serviceCollection = new ServiceCollection();
-            var startupService = new StartupService();
+            var startupService = new StartupConfigurator();
 
             startupService.Configure(serviceCollection);
             serviceCollection.BuildServiceProvider();
