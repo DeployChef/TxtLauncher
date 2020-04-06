@@ -1,14 +1,14 @@
-using System;
-using Xunit;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TxtLauncher.Tests
 {
+    [TestClass]
     public class UnitTest1
     {
-        [Fact]
-        public void Test1()
+        [TestMethod]
+        public void TestMethod1()
         {
-
         }
     }
 }
