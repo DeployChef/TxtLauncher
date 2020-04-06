@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 using Microsoft.Extensions.DependencyInjection;
+using TxtLauncher.ViewModels;
 
 namespace TxtLauncher
 {
@@ -33,7 +34,7 @@ namespace TxtLauncher
             startupService.Configure(_serviceCollection);
             _serviceProvider = startupService.BuildProvider(_serviceCollection);
 
-            var main = _serviceProvider.Resolve<MainWindowViewModel>();
+            var main = new MainViewModel();
             var window = new MainWindow { DataContext = main };
             Current.MainWindow = window;
             window.Show();
