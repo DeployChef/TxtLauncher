@@ -3,16 +3,11 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace TxtLauncher
 {
-    public class StartupService
+    public class StartupConfigurator
     {
         public void Configure(IServiceCollection services)
         {
             
-        }
-
-        public IServiceProvider BuildProvider(IServiceCollection services)
-        {
-            return services.BuildServiceProvider();
         }
     }
 }

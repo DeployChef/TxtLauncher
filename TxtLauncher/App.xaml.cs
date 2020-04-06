@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Threading;
 using Microsoft.Extensions.DependencyInjection;
 using TxtLauncher.ViewModels;
+using TxtLauncher.Views;
 
 namespace TxtLauncher
 {
@@ -16,9 +17,6 @@ namespace TxtLauncher
     /// </summary>
     public partial class App : Application
     {
-        private IServiceCollection _serviceCollection;
-        private IServiceProvider _serviceProvider;
-
         private void ProcessUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             //LogHandlerApplication.ProccessException(e.Exception);
@@ -29,10 +27,11 @@ namespace TxtLauncher
         {
             DispatcherUnhandledException += ProcessUnhandledException;
 
+            var serviceCollection = new ServiceCollection();
             var startupService = new StartupService();
 
-            startupService.Configure(_serviceCollection);
-            _serviceProvider = startupService.BuildProvider(_serviceCollection);
+            startupService.Configure(serviceCollection);
+            serviceCollection.BuildServiceProvider();
 
             var main = new MainViewModel();
             var window = new MainWindow { DataContext = main };
